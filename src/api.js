@@ -33,7 +33,7 @@ const removeQuery = () => {
 };
 
 const getToken = async (code) => {
-  console.log('getToken')
+  console.log("getToken");
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/token" +
@@ -51,7 +51,7 @@ const getToken = async (code) => {
 };
 
 export const getEvents = async () => {
-  console.log('getEvents')
+  console.log("getEvents");
   NProgress.start();
 
   if (window.location.href.startsWith("http://localhost")) {
@@ -72,14 +72,14 @@ export const getEvents = async () => {
       var locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
       localStorage.setItem("locations", JSON.stringify(locations));
+      NProgress.done();
+      return result.data.events;
     }
-    NProgress.done();
-    return result.data.events;
   }
 };
 
 export const getAccessToken = async () => {
-  console.log('getAccessToken')
+  console.log("getAccessToken");
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
