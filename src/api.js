@@ -19,6 +19,7 @@ const checkToken = async (accessToken) => {
 };
 
 const removeQuery = () => {
+  alert('removeQuery')
   if (window.history.pushState && window.location.pathname) {
     var newurl =
       window.location.protocol +
@@ -33,7 +34,7 @@ const removeQuery = () => {
 };
 
 const getToken = async (code) => {
-  console.log("getToken");
+  alert('getToken')
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/token" +
@@ -51,7 +52,7 @@ const getToken = async (code) => {
 };
 
 export const getEvents = async () => {
-  alert('ey')
+  alert('getEvents')
   NProgress.start();
 
   if (window.location.href.startsWith("http://localhost")) {
@@ -79,6 +80,7 @@ export const getEvents = async () => {
 };
 
 export const getAccessToken = async () => {
+  alert('getAccessToken')
   console.log("getAccessToken");
   const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
