@@ -14,10 +14,12 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // this.mounted = true;
+    this.mounted = true;
     getEvents()
       .then((events) => {
-        // if (this.mounted) {
+        if (this.mounted) {
+          console.log("hey");
+        }
         //   this.setState({
         //     events: events.slice(0, this.state.numberOfEvents),
         //     locations: extractLocations(events),
@@ -36,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>HII</h1>
+        <h1>YOO</h1>
       </div>
     );
   }
