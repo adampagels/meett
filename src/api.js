@@ -1,6 +1,6 @@
-import { mockData } from './mock-data';
-import axios from 'axios';
-import NProgress from 'nprogress';
+import { mockData } from "./mock-data";
+import axios from "axios";
+import NProgress from "nprogress";
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
@@ -33,10 +33,12 @@ const removeQuery = () => {
 };
 
 const getToken = async (code) => {
+  console.log('getToken')
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    'https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/token' +
-    '/' + encodeCode
+    "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/token" +
+      "/" +
+      encodeCode
   )
     .then((res) => {
       return res.json();
@@ -49,9 +51,10 @@ const getToken = async (code) => {
 };
 
 export const getEvents = async () => {
+  console.log('getEvents')
   NProgress.start();
 
-  if (window.location.href.startsWith('http://localhost')) {
+  if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
   }
@@ -61,8 +64,9 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      'https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/get-events' +
-      '/' + token;
+      "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/get-events" +
+      "/" +
+      token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -75,11 +79,12 @@ export const getEvents = async () => {
 };
 
 export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem('access_token');
+  console.log('getAccessToken')
+  const accessToken = localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem('access_token');
+    await localStorage.removeItem("access_token");
     const searchParams = new URLSearchParams(window.location.search);
     const code = await searchParams.get("code");
     if (!code) {
