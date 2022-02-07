@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>HELLLO</h1>
+        <h1>HII</h1>
       </div>
     );
   }
