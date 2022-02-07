@@ -61,7 +61,7 @@ export const getEvents = async () => {
   }
 
   const token = await getAccessToken();
-
+  console.log(token)
   if (token) {
     removeQuery();
     const url =
@@ -69,6 +69,7 @@ export const getEvents = async () => {
       "/" +
       token;
     const result = await axios.get(url);
+    console.log(result)
     if (result.data) {
       var locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
