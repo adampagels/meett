@@ -77,6 +77,8 @@ export const getEvents = async () => {
     }
     NProgress.done();
     return result.data.events;
+  } else {
+    alert('NO TOKEN')
   }
 };
 
