@@ -36,7 +36,7 @@ const getToken = async (code) => {
   console.log("getToken");
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    "https://xgkkjps60h.execute-api.us-east-1.amazonaws.com/dev/api/token" +
+    "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/token" +
       "/" +
       encodeCode
   )
@@ -64,7 +64,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      "https://xgkkjps60h.execute-api.us-east-1.amazonaws.com/dev/api/get-events" +
+      "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/get-events" +
       "/" +
       token;
     const result = await axios.get(url);
@@ -89,7 +89,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
-        "https://xgkkjps60h.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        "https://dgbvc7kola.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url"
       );
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
