@@ -14,19 +14,23 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({
-          events: events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(events),
-        });
-      }
-    });
+    // this.mounted = true;
+    getEvents()
+      .then((events) => {
+        // if (this.mounted) {
+        //   this.setState({
+        //     events: events.slice(0, this.state.numberOfEvents),
+        //     locations: extractLocations(events),
+        //   });
+        // }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   componentWillUnmount() {
-    this.mounted = false;
+    // this.mounted = false;
   }
 
   render() {
