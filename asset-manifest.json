@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/meett/static/css/main.c4672159.chunk.css",
-    "main.js": "/meett/static/js/main.758baa1f.chunk.js",
-    "main.js.map": "/meett/static/js/main.758baa1f.chunk.js.map",
+    "main.js": "/meett/static/js/main.e60aff1f.chunk.js",
+    "main.js.map": "/meett/static/js/main.e60aff1f.chunk.js.map",
     "runtime-main.js": "/meett/static/js/runtime-main.8385a957.js",
     "runtime-main.js.map": "/meett/static/js/runtime-main.8385a957.js.map",
     "static/js/2.257be4de.chunk.js": "/meett/static/js/2.257be4de.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.8385a957.js",
     "static/js/2.257be4de.chunk.js",
     "static/css/main.c4672159.chunk.css",
-    "static/js/main.758baa1f.chunk.js"
+    "static/js/main.e60aff1f.chunk.js"
   ]
 }
